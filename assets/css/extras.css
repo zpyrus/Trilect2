@@ -1,0 +1,56 @@
+/* Trilect Associates: social links + contact links */
+a.social-btn { text-decoration: none; }
+a.social-btn:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; }
+.cd-value a { color: inherit; text-decoration: none; transition: color .3s; }
+.cd-value a:hover { color: var(--gold); }
+
+/* ── disclaimer gate (Bar Council of India) ── */
+html.disc-pending { overflow: hidden; }
+html.disc-pending::before { content: ""; position: fixed; inset: 0; background: #14251C; z-index: 2147483000; }
+#discGate {
+  position: fixed; inset: 0; z-index: 2147483600; overflow-y: auto;
+  display: flex; padding: clamp(14px, 4vw, 48px);
+  background: radial-gradient(ellipse at 15% 0%, #214536 0%, #14251C 52%, #0d1812 100%);
+  opacity: 0; animation: discIn .6s .05s ease forwards;
+}
+#discGate.closing { animation: discOut .55s ease forwards; pointer-events: none; }
+@keyframes discIn { to { opacity: 1; } }
+@keyframes discOut { from { opacity: 1; } to { opacity: 0; } }
+.disc-card {
+  width: 100%; max-width: 900px; margin: auto;
+  border: 1px solid rgba(201,169,97,.28); border-top: 2px solid #C9A961;
+  background: rgba(245,241,227,.035);
+  padding: clamp(1.7rem, 4.5vw, 3.6rem);
+  box-shadow: 0 40px 90px rgba(0,0,0,.35);
+  transform: translateY(14px); animation: discUp .8s .2s cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes discUp { to { transform: none; } }
+.disc-brand { display: flex; align-items: center; gap: .85rem; margin-bottom: 2rem; color: #C9A961; letter-spacing: .1em; font-size: 1.05rem; }
+.disc-brand span { color: #F5F1E3; }
+.disc-card h2 { font-weight: 300; font-size: clamp(2rem, 4.6vw, 3.1rem); line-height: 1.1; letter-spacing: -.01em; color: #F5F1E3; margin-bottom: 1.6rem; }
+.disc-card h2::after { content: ""; display: block; width: 64px; height: 1px; background: #C9A961; margin-top: 1.3rem; }
+.disc-text p { font-size: clamp(.94rem, 1.5vw, 1.04rem); line-height: 1.85; font-weight: 300; color: rgba(245,241,227,.84); }
+.disc-text p + p { margin-top: 1rem; }
+.disc-check { display: flex; align-items: center; gap: .85rem; margin-top: 2rem; cursor: pointer; font-size: 1rem; color: #F5F1E3; width: fit-content; }
+.disc-check input { width: 22px; height: 22px; accent-color: #C9A961; cursor: pointer; flex: none; }
+.disc-check input:focus-visible { outline: 2px solid #C9A961; outline-offset: 3px; }
+.disc-go {
+  margin-top: 1.6rem; display: inline-block; padding: 1rem 2.2rem; font: inherit; font-size: .78rem; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase; border: 1px solid #C9A961; background: #C9A961; color: #14251C;
+  cursor: pointer; transition: background .3s, color .3s, opacity .3s;
+}
+.disc-go:hover:not(:disabled) { background: transparent; color: #C9A961; }
+.disc-go:disabled { background: transparent; color: rgba(201,169,97,.6); border-color: rgba(201,169,97,.35); cursor: not-allowed; }
+.disc-go:focus-visible { outline: 2px solid #F5F1E3; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { #discGate, .disc-card { animation: none !important; opacity: 1; transform: none; } }
+
+
+/* crest beside the wordmark: sized in em so it follows the wordmark font size at every breakpoint */
+.nav-logo { display: inline-flex; align-items: center; gap: .5em; }
+.nav-crest { height: 1.95em; width: auto; display: block; flex: none; transition: height .3s; }
+nav.scrolled .nav-crest { height: 1.7em; }
+.nav-logo .nav-wm { color: var(--gold); white-space: nowrap; }
+.nav-logo .nav-wm span { color: var(--beige); }
+.footer-brand-logo { display: flex; align-items: center; gap: .6em; }
+.footer-crest { height: 2.2em; width: auto; display: block; flex: none; }
+.disc-brand img { height: 46px; width: auto; display: block; }
